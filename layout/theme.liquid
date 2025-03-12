@@ -22,6 +22,39 @@
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
+    <style>
+      @font-face {
+        font-family: 'DIN Condensed';
+        src: url("{{ 'DINCond-Light.woff2' | asset_url }}") format('woff2'),
+          url("{{ 'DINCond-Light.woff' | asset_url }}") format('woff');
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Miso';
+        src: url("{{ 'Miso.woff2' | asset_url }}") format('woff2'), url("{{ 'Miso.woff' | asset_url }}") format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Miso';
+        src: url("{{ 'Miso-Bold.woff2' | asset_url }}") format('woff2'),
+          url("{{ 'Miso-Bold.woff' | asset_url }}") format('woff');
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Parisine';
+        src: url("{{ 'ParisinePlusStdClair-Italic.woff2' | asset_url }}") format('woff2'),
+          url("{{ 'ParisinePlusStdClair-Italic.woff' | asset_url }}") format('woff');
+        font-weight: normal;
+        font-style: italic;
+      }
+    </style>
+
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
@@ -109,8 +142,8 @@
         --font-heading-style: 'normal';
         --font-heading-weight: 300;
 
-        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
-        --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+        --font-body-scale: {{ 125 | divided_by: 100.0 }};
+        --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: 125 }};
 
         --media-padding: {{ settings.media_padding }}px;
         --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
@@ -241,7 +274,7 @@
         min-height: 100%;
         margin: 0;
         font-size: 1.5rem;
-        letter-spacing: 0.06rem;
+        /* letter-spacing: 0.06rem; */
         line-height: calc(1 + 0.8 / var(--font-body-scale));
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
